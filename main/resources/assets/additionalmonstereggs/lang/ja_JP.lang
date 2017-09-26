@@ -1,0 +1,14 @@
+#
+tile.blockMonsterEggC.name=クリーパー入りの石
+tile.blockMonsterEggSk.name=弓のスケルトン入りの石
+tile.blockMonsterEggSkS.name=剣のスケルトン入りの石
+tile.blockMonsterEggSl.name=スライム入りの石
+tile.blockMonsterEggSp.name=クモ入りの石
+tile.blockMonsterEggSpC.name=洞窟グモ入りの石
+tile.blockMonsterEggW.name=ウィッチ入りの石
+tile.blockMonsterEggX.name=モンスターエッグX
+tile.blockMonsterEggZ.name=ゾンビ入りの石
+tile.blockMonsterEggZC.name=子どもゾンビ入りの石
+tile.blockPitfallBlock.name=落とし穴の石
+tile.blockLavaBlock.name=溶岩入りの石
+tile.blockTNTBlock.name=TNT入りの石
