@@ -1,4 +1,5 @@
-#
+
+// Blocks
 tile.blockMonsterEggC.name=Creeper Stone
 tile.blockMonsterEggSk.name=Bow Skeleton Stone
 tile.blockMonsterEggSkS.name=Sword Skeleton Stone
@@ -12,3 +13,8 @@ tile.blockMonsterEggZC.name=Child Zombie Stone
 tile.blockPitfallBlock.name=Pitfall Stone
 tile.blockLavaBlock.name=Lava Stone
 tile.blockTNTBlock.name=TNT Stone
+
+// Config
+config.ame.category.general=General
+config.ame.category.special=Special Blocks
+config.ame.category.weight=Generation Weight

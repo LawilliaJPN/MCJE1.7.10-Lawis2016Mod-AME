@@ -1,4 +1,5 @@
-#
+
+// ブロック
 tile.blockMonsterEggC.name=クリーパー入りの石
 tile.blockMonsterEggSk.name=弓のスケルトン入りの石
 tile.blockMonsterEggSkS.name=剣のスケルトン入りの石
@@ -12,3 +13,8 @@ tile.blockMonsterEggZC.name=子どもゾンビ入りの石
 tile.blockPitfallBlock.name=落とし穴の石
 tile.blockLavaBlock.name=溶岩入りの石
 tile.blockTNTBlock.name=TNT入りの石
+
+// コンフィグ
+config.ame.category.general=全般
+config.ame.category.special=特殊ブロック生成
+config.ame.category.weight=生成量(0～4)

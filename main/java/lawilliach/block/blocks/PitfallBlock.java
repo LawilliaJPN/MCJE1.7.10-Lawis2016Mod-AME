@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-public class PitfallBlock extends Block {
+public class PitfallBlock extends AmeBlockBase {
 	public PitfallBlock() {
         super(Material.rock);
 	    // ブロックの特性の設定

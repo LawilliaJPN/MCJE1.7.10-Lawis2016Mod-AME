@@ -1,5 +1,6 @@
 package lawilliach;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Metadata;
@@ -9,6 +10,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import lawilliach.block.AmeBlockRegistry;
 import lawilliach.block.AmeRecipes;
+import lawilliach.config.AmeConfigCore;
+import lawilliach.config.AmeConfigEventHandler;
 import lawilliach.config.AmeInfoCore;
 import lawilliach.world.GeneratorMonsterEggs;
 
@@ -27,16 +30,20 @@ public class AdditionalMonsterEggs {
 	public void perInit(FMLPreInitializationEvent event) {
 		// MODの情報の登録
 		AmeInfoCore.registerInfo(meta);
+		// コンフィグの読み込み
+		AmeConfigCore.loadConfig(event);
 		// 追加したブロックの登録
 		AmeBlockRegistry.initBlocks();
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		// ゲーム内コンフィグ変更の反映
+		FMLCommonHandler.instance().bus().register(new AmeConfigEventHandler());
 		// モンスターエッグのワールド生成
 		GameRegistry.registerWorldGenerator(new GeneratorMonsterEggs(), 0);
 		// モンスターエッグ、スポーンエッグを使って作れるレシピの追加
-		new AmeRecipes();
+		AmeRecipes.initRecipes();
 	}
 }
 

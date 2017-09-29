@@ -3,18 +3,18 @@ package lawilliach.block;
 import cpw.mods.fml.common.registry.GameRegistry;
 import lawilliach.api.AmeBlocks;
 import lawilliach.block.blocks.LavaBlock;
-import lawilliach.block.blocks.MonsterEggC;
-import lawilliach.block.blocks.MonsterEggSk;
-import lawilliach.block.blocks.MonsterEggSkS;
-import lawilliach.block.blocks.MonsterEggSl;
-import lawilliach.block.blocks.MonsterEggSp;
-import lawilliach.block.blocks.MonsterEggSpC;
-import lawilliach.block.blocks.MonsterEggW;
-import lawilliach.block.blocks.MonsterEggX;
-import lawilliach.block.blocks.MonsterEggZ;
-import lawilliach.block.blocks.MonsterEggZC;
 import lawilliach.block.blocks.PitfallBlock;
 import lawilliach.block.blocks.TNTBlock;
+import lawilliach.block.blocks.monsteregg.MonsterEggC;
+import lawilliach.block.blocks.monsteregg.MonsterEggSk;
+import lawilliach.block.blocks.monsteregg.MonsterEggSkS;
+import lawilliach.block.blocks.monsteregg.MonsterEggSl;
+import lawilliach.block.blocks.monsteregg.MonsterEggSp;
+import lawilliach.block.blocks.monsteregg.MonsterEggSpC;
+import lawilliach.block.blocks.monsteregg.MonsterEggW;
+import lawilliach.block.blocks.monsteregg.MonsterEggX;
+import lawilliach.block.blocks.monsteregg.MonsterEggZ;
+import lawilliach.block.blocks.monsteregg.MonsterEggZC;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class AmeBlockRegistry {
@@ -69,7 +69,7 @@ public class AmeBlockRegistry {
 			.setBlockTextureName("stone");
 		GameRegistry.registerBlock(AmeBlocks.blockMonsterEggW, "blockMonsterEggW");
 
-		// ???
+		// モンスターエッグX
 		AmeBlocks.blockMonsterEggX = new MonsterEggX()
 			.setCreativeTab(CreativeTabs.tabDecorations)
 			.setBlockName("blockMonsterEggX")

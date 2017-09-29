@@ -1,18 +1,18 @@
-package lawilliach.block.blocks;
+package lawilliach.block.blocks.monsteregg;
 
 import java.util.Random;
 
 import lawilliach.api.AmeBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-public class MonsterEggZC extends Block {
-	public MonsterEggZC() {
+public class MonsterEggW extends AmeMEBase {
+	public MonsterEggW() {
         super(Material.rock);
 	    // ブロックの特性の設定
 	    // ブロックの硬さ (黒曜石50.0F、鉱石3.0F、石1.5F、土0.5F)
@@ -27,17 +27,25 @@ public class MonsterEggZC extends Block {
 	    setLightLevel(0.0F);
 	}
 
-	// BlockSilverfish.classを参考に子どもゾンビを召喚
+	// BlockSilverfish.classを参考にウィッチを召喚
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int meta) {
 		if (!world.isRemote) {
     	    world.setBlockToAir(x, y + 1, z);
+    	    // Hard版調整の空気ブロック追加
+    	    world.setBlockToAir(x  + 1, y, z);
+    	    world.setBlockToAir(x, y, z + 1);
+    	    world.setBlockToAir(x - 1, y, z);
+    	    world.setBlockToAir(x, y, z - 1);
+    	    world.setBlockToAir(x  + 1, y + 1, z);
+    	    world.setBlockToAir(x, y + 1, z + 1);
+    	    world.setBlockToAir(x - 1, y + 1, z);
+    	    world.setBlockToAir(x, y + 1, z - 1);
 
-    	    EntityZombie entityzombie = new EntityZombie(world);
-    	    entityzombie.setChild(true);
-            entityzombie.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
-            world.spawnEntityInWorld(entityzombie);
-            entityzombie.spawnExplosionParticle();
+    	    EntityWitch entitywitch = new EntityWitch(world);
+            entitywitch.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
+            world.spawnEntityInWorld(entitywitch);
+            entitywitch.spawnExplosionParticle();
 		}
 		super.onBlockDestroyedByPlayer(world, x, y, z, meta);
 	}
@@ -49,11 +57,10 @@ public class MonsterEggZC extends Block {
     		world.setBlockToAir(x, y, z);
     		world.setBlockToAir(x, y + 1, z);
 
-    		EntityZombie entityzombie = new EntityZombie(world);
-    	    entityzombie.setChild(true);
-    		entityzombie.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
-    		world.spawnEntityInWorld(entityzombie);
-    		entityzombie.spawnExplosionParticle();
+    		EntityWitch entitywitch = new EntityWitch(world);
+    		entitywitch.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
+    		world.spawnEntityInWorld(entitywitch);
+    		entitywitch.spawnExplosionParticle();
 		}
     }
 
@@ -64,7 +71,7 @@ public class MonsterEggZC extends Block {
 		int r = new java.util.Random().nextInt(10);
 
 		if (r >= 7) { // 30％の確率でモンスターエッグ自身をドロップ
-			return Item.getItemFromBlock(AmeBlocks.blockMonsterEggZC);
+			return Item.getItemFromBlock(AmeBlocks.blockMonsterEggW);
 		} else {	// 70％の確率で丸石をドロップ
 			return Item.getItemFromBlock(Blocks.cobblestone);
 		}

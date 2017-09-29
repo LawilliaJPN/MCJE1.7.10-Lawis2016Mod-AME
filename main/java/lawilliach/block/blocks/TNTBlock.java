@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-public class TNTBlock extends Block {
+public class TNTBlock extends AmeBlockBase {
 	public TNTBlock() {
         super(Material.rock);
 	    // ブロックの特性の設定

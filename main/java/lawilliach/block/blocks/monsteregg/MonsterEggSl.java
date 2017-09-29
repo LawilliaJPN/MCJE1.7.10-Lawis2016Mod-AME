@@ -1,4 +1,4 @@
-package lawilliach.block.blocks;
+package lawilliach.block.blocks.monsteregg;
 
 import java.util.Random;
 
@@ -11,7 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-public class MonsterEggSl extends Block {
+public class MonsterEggSl extends AmeMEBase {
 	public MonsterEggSl() {
         super(Material.rock);
 	    // ブロックの特性の設定

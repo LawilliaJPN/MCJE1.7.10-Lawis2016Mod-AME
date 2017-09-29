@@ -4,6 +4,7 @@ import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
 import lawilliach.api.AmeBlocks;
+import lawilliach.config.AmeConfigCore;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderSurface;
@@ -19,97 +20,116 @@ public class GeneratorMonsterEggs implements IWorldGenerator {
 	}
 
 	private void generateOre(World world, Random random, int x, int z) {
-		// モンスターエッグ生成（Hard版はi<Xに+5 or 10。すべてNumberofBlockの引数に+2）
-		for(int i = 0; i < 30; i++) { // Normal版はi < 20
+		int c2 = AmeConfigCore.configWeight *2;
+		int c5 = AmeConfigCore.configWeight *5;
+		int c10 = AmeConfigCore.configWeight *10;
+
+		/* モンスターエッグの生成 */
+		// クリーパー：Y=01～30 鉄ピッケル
+		for(int i = 0; i < 10 +c10; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 1 + random.nextInt(30); // クリーパー：Y=01～30 鉄ピッケル
+			int genY = 1 + random.nextInt(30);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggC, 0, 6, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggC, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		for(int i = 0; i < 25; i++) { // Normal版はi < 20
+		// 弓スケルトン：Y=01～30 鉄ピッケル
+		for(int i = 0; i < 15 +c5; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 1 + random.nextInt(30); // 弓スケルトン：Y=01～30 鉄ピッケル
+			int genY = 1 + random.nextInt(30);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggSk, 0, 6, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggSk, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		for(int i = 0; i < 40; i++) { // Normal版はi < 30
+		// 剣スケルトン：Y=31～70 石ピッケル
+		for(int i = 0; i < 20 +c10; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 31 + random.nextInt(40); // 剣スケルトン：Y=31～70 石ピッケル
+			int genY = 31 + random.nextInt(40);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggSkS, 0, 6, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggSkS, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		for(int i = 0; i < 20; i++) { // スライムとウィッチは半分 Normal版はi < 15
+		// スライム：Y=31～70 石ピッケル
+		for(int i = 0; i < 10 +c5; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 31 + random.nextInt(40); // スライム：Y=31～70 石ピッケル
+			int genY = 31 + random.nextInt(40);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggSl, 0, 6, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggSl, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		for(int i = 0; i < 35; i++) { // Normal版はi < 30
+		// クモ：Y=51～90 木ピッケル
+		for(int i = 0; i < 25 +c5; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 51 + random.nextInt(40); // クモ：Y=51～90 木ピッケル
+			int genY = 51 + random.nextInt(40);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggSp, 0, 6, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggSp, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		for(int i = 0; i < 35; i++) { // Normal版はi < 30
+		// 洞窟蜘蛛：Y=11～50 石ピッケル
+		for(int i = 0; i < 25 +c5; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 11 + random.nextInt(40); // 洞窟蜘蛛：Y=11～50 石ピッケル
+			int genY = 11 + random.nextInt(40);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggSpC, 0, 10, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggSpC, 0, 6 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		for(int i = 0; i < 15; i++) { // スライムとウィッチは半分 Normal版はi < 10
+		// ウィッチ：Y=71～100 石ピッケル
+		for(int i = 0; i < 5 +c5; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 71 + random.nextInt(30); // ウィッチ：Y=71～100 石ピッケル
+			int genY = 71 + random.nextInt(30);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggW, 0, 6, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggW, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		for(int i = 0; i < 40; i++) { // Normal版はi < 30
+		// ゾンビ：Y=51～90 木ピッケル
+		for(int i = 0; i < 20 +c10; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 51 + random.nextInt(40); // ゾンビ：Y=51～90 木ピッケル
+			int genY = 51 + random.nextInt(40);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggZ, 0, 6, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggZ, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		for(int i = 0; i < 35; i++) { // Normal版はi < 30
+		// 子ゾンビ：Y=11～50 石ピッケル
+		for(int i = 0; i < 25 +c5; i++) {
 			int genX = x + random.nextInt(16);
-			int genY = 11 + random.nextInt(40); // 子ゾンビ：Y=11～50 石ピッケル
+			int genY = 11 + random.nextInt(40);
 			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockMonsterEggZC, 0, 10, Blocks.stone).generate(world, random, genX, genY, genZ);
+			new WorldGenMinable(AmeBlocks.blockMonsterEggZC, 0, 6 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
 		}
 
-		// 以下Hard版のみ
-		for(int i = 0; i < 20; i++) {
-			int genX = x + random.nextInt(16);
-			int genY = 1 + random.nextInt(40); // 黒曜石：Y=01～40
-			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(Blocks.obsidian, 0, 16, Blocks.stone).generate(world, random, genX, genY, genZ);
-		}
-		
-		for(int i = 0; i < 30; i++) {
-			int genX = x + random.nextInt(16);
-			int genY = 21 + random.nextInt(40); // 落とし穴ブロック：Y=21～60
-			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockPitfallBlock, 0, 12, Blocks.stone).generate(world, random, genX, genY, genZ);
-		}
-		
-		for(int i = 0; i < 25; i++) {
-			int genX = x + random.nextInt(16);
-			int genY = 6 + random.nextInt(30); // 溶岩ブロック：Y=06～35
-			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockLavaBlock, 0, 8, Blocks.stone).generate(world, random, genX, genY, genZ);
-		}
-		
-		for(int i = 0; i < 30; i++) {
-			int genX = x + random.nextInt(16);
-			int genY = 11 + random.nextInt(40); // TNTブロック：Y=11～50
-			int genZ = z + random.nextInt(16);
-			new WorldGenMinable(AmeBlocks.blockTNTBlock, 0, 4, Blocks.stone).generate(world, random, genX, genY, genZ);
+		/* モンスターエッグ以外の生成 */
+		if (AmeConfigCore.isConfigSpecial) {
+			// 黒曜石：Y=01～40
+			for(int i = 0; i < 10 +c5; i++) {
+				int genX = x + random.nextInt(16);
+				int genY = 1 + random.nextInt(40);
+				int genZ = z + random.nextInt(16);
+				new WorldGenMinable(Blocks.obsidian, 0, 10 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
+			}
+
+			// 落とし穴ブロック：Y=21～60
+			for(int i = 0; i < 20 +c5; i++) {
+				int genX = x + random.nextInt(16);
+				int genY = 21 + random.nextInt(40);
+				int genZ = z + random.nextInt(16);
+				new WorldGenMinable(AmeBlocks.blockPitfallBlock, 0, 6 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
+			}
+
+			// 溶岩ブロック：Y=06～35
+			for(int i = 0; i < 15 +c5; i++) {
+				int genX = x + random.nextInt(16);
+				int genY = 6 + random.nextInt(30);
+				int genZ = z + random.nextInt(16);
+				new WorldGenMinable(AmeBlocks.blockLavaBlock, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
+			}
+
+			// TNTブロック：Y=11～50
+			for(int i = 0; i < 20 + c5; i++) {
+				int genX = x + random.nextInt(16);
+				int genY = 11 + random.nextInt(40);
+				int genZ = z + random.nextInt(16);
+				new WorldGenMinable(AmeBlocks.blockTNTBlock, 0, 4 +c2, Blocks.stone).generate(world, random, genX, genY, genZ);
+			}
 		}
 	}
 }
