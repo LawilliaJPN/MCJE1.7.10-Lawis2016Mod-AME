@@ -17,5 +17,6 @@ Additional Monster Eggs(Minecraft Java Edition ver.1.7.10)
 * GNU General Public License v3.0  
 * Copyright © 2016-2017 Lawillia  
   
-### ダウンロード(Download)  
-準備中  
+### ダウンロード(Download)  
+ver.2.0：<https://github.com/LawilliaJPN/MCJE1.7.10-Lawis2016Mod-AME/releases/tag/ver.2.0>  
+  
