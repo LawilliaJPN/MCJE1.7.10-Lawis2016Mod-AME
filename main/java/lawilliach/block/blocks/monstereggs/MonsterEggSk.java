@@ -1,18 +1,20 @@
-package lawilliach.block.blocks.monsteregg;
+package lawilliach.block.blocks.monstereggs;
 
 import java.util.Random;
 
 import lawilliach.api.AmeBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-public class MonsterEggC extends AmeMEBase {
-	public MonsterEggC() {
+public class MonsterEggSk extends AmeMEBase {
+	public MonsterEggSk() {
         super(Material.rock);
 	    // ブロックの特性の設定
 	    // ブロックの硬さ (黒曜石50.0F、鉱石3.0F、石1.5F、土0.5F)
@@ -27,7 +29,7 @@ public class MonsterEggC extends AmeMEBase {
 	    setLightLevel(0.0F);
 	}
 
-	// BlockSilverfish.classを参考に、ブロックを壊したときにクリーパーを召喚
+	// BlockSilverfish.classを参考に、ブロックを壊したときにスケルトンを召喚
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int meta) {
 	       if (!world.isRemote) {
@@ -42,10 +44,11 @@ public class MonsterEggC extends AmeMEBase {
 	    	    world.setBlockToAir(x - 1, y + 1, z);
 	    	    world.setBlockToAir(x, y + 1, z - 1);
 
-	    	    EntityCreeper entitycreeper = new EntityCreeper(world);
-	            entitycreeper.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
-	            world.spawnEntityInWorld(entitycreeper);
-	            entitycreeper.spawnExplosionParticle();
+	    	    EntitySkeleton entityskeleton = new EntitySkeleton(world);
+	    		entityskeleton.setCurrentItemOrArmor(0, new ItemStack(Items.bow));
+	            entityskeleton.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
+	            world.spawnEntityInWorld(entityskeleton);
+	            entityskeleton.spawnExplosionParticle();
 	        }
 	        super.onBlockDestroyedByPlayer(world, x, y, z, meta);
 	}
@@ -57,10 +60,11 @@ public class MonsterEggC extends AmeMEBase {
 	    		world.setBlockToAir(x, y, z);
 	    		world.setBlockToAir(x, y + 1, z);
 
-	    		EntityCreeper entitycreeper = new EntityCreeper(world);
-	    		entitycreeper.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
-	    		world.spawnEntityInWorld(entitycreeper);
-	    		entitycreeper.spawnExplosionParticle();
+	    		EntitySkeleton entityskeleton = new EntitySkeleton(world);
+	    		entityskeleton.setCurrentItemOrArmor(0, new ItemStack(Items.bow));
+	    		entityskeleton.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
+	    		world.spawnEntityInWorld(entityskeleton);
+	    		entityskeleton.spawnExplosionParticle();
     		}
     }
 
@@ -70,7 +74,7 @@ public class MonsterEggC extends AmeMEBase {
 			int r = new java.util.Random().nextInt(10);
 
 			if (r >= 7) { // 30％の確率でモンスターエッグ自身をドロップ
-				return Item.getItemFromBlock(AmeBlocks.blockMonsterEggC);
+				return Item.getItemFromBlock(AmeBlocks.blockMonsterEggSk);
 			} else {	// 70％の確率で丸石をドロップ
 				return Item.getItemFromBlock(Blocks.cobblestone);
 			}

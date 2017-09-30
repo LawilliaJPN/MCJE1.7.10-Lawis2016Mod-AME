@@ -1,4 +1,4 @@
-package lawilliach.block.blocks.monsteregg;
+package lawilliach.block.blocks.monstereggs;
 
 import lawilliach.block.blocks.AmeBlockBase;
 import net.minecraft.block.material.Material;

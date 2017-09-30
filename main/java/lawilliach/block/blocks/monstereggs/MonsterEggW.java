@@ -1,4 +1,4 @@
-package lawilliach.block.blocks.monsteregg;
+package lawilliach.block.blocks.monstereggs;
 
 import java.util.Random;
 

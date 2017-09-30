@@ -5,16 +5,16 @@ import lawilliach.api.AmeBlocks;
 import lawilliach.block.blocks.LavaBlock;
 import lawilliach.block.blocks.PitfallBlock;
 import lawilliach.block.blocks.TNTBlock;
-import lawilliach.block.blocks.monsteregg.MonsterEggC;
-import lawilliach.block.blocks.monsteregg.MonsterEggSk;
-import lawilliach.block.blocks.monsteregg.MonsterEggSkS;
-import lawilliach.block.blocks.monsteregg.MonsterEggSl;
-import lawilliach.block.blocks.monsteregg.MonsterEggSp;
-import lawilliach.block.blocks.monsteregg.MonsterEggSpC;
-import lawilliach.block.blocks.monsteregg.MonsterEggW;
-import lawilliach.block.blocks.monsteregg.MonsterEggX;
-import lawilliach.block.blocks.monsteregg.MonsterEggZ;
-import lawilliach.block.blocks.monsteregg.MonsterEggZC;
+import lawilliach.block.blocks.monstereggs.MonsterEggC;
+import lawilliach.block.blocks.monstereggs.MonsterEggSk;
+import lawilliach.block.blocks.monstereggs.MonsterEggSkS;
+import lawilliach.block.blocks.monstereggs.MonsterEggSl;
+import lawilliach.block.blocks.monstereggs.MonsterEggSp;
+import lawilliach.block.blocks.monstereggs.MonsterEggSpC;
+import lawilliach.block.blocks.monstereggs.MonsterEggW;
+import lawilliach.block.blocks.monstereggs.MonsterEggX;
+import lawilliach.block.blocks.monstereggs.MonsterEggZ;
+import lawilliach.block.blocks.monstereggs.MonsterEggZC;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class AmeBlockRegistry {

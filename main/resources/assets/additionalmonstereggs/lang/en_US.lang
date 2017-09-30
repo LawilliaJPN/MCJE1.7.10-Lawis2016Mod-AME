@@ -18,3 +18,34 @@ tile.blockTNTBlock.name=TNT Stone
 config.ame.category.general=General
 config.ame.category.special=Special Blocks
 config.ame.category.weight=Generation Weight
+
+// Achievement
+achievement.meCaveSpider=Cave Spider
+achievement.meCaveSpider.desc=Y=11～50
+
+achievement.meCreeper=Creeper
+achievement.meCreeper.desc=Y=01～30
+
+achievement.meSkeleton=Skeleton
+achievement.meSkeleton.desc=Y=01～30
+
+achievement.meSkeletonSword=Skeleton(Sword)
+achievement.meSkeletonSword.desc=Y=31～70
+
+achievement.meSlime=Slime
+achievement.meSlime.desc=Y=31～70
+
+achievement.meSpider=Spider
+achievement.meSpider.desc=Y=51～90
+
+achievement.meWitch=Witch
+achievement.meWitch.desc=Y=71～100
+
+achievement.meX=Monster Egg X
+achievement.meX.desc=Collect all others
+
+achievement.meZombie=Zombie
+achievement.meZombie.desc=Y=51～90
+
+achievement.meZombieChild=Zombie(Child)
+achievement.meZombieChild.desc=Y=11～50

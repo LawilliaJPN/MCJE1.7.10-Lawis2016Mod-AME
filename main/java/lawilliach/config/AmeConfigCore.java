@@ -19,7 +19,7 @@ public class AmeConfigCore {
 
 	// WEIGHT 生成量
 	private static final String WEIGHT = GENERAL + ".Weight";
-	public static int configWeight = 2;
+	public static int configWeight = 1;
 
 	/*
 	 * preInitにて呼び出すメソッド。

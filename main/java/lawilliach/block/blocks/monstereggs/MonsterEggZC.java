@@ -1,4 +1,4 @@
-package lawilliach.block.blocks.monsteregg;
+package lawilliach.block.blocks.monstereggs;
 
 import java.util.Random;
 
@@ -11,8 +11,8 @@ import net.minecraft.item.Item;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-public class MonsterEggZ extends AmeMEBase {
-	public MonsterEggZ() {
+public class MonsterEggZC extends AmeMEBase {
+	public MonsterEggZC() {
         super(Material.rock);
 	    // ブロックの特性の設定
 	    // ブロックの硬さ (黒曜石50.0F、鉱石3.0F、石1.5F、土0.5F)
@@ -22,27 +22,19 @@ public class MonsterEggZ extends AmeMEBase {
 	    // ブロックの上を歩いた音
 	    setStepSound(Block.soundTypeStone);
 		// 適正ツールの設定(0:木、1:石、2:鉄、3:ダイヤ)
-		this.setHarvestLevel("pickaxe", 0);
+		this.setHarvestLevel("pickaxe", 1);
 	    // ブロックの明るさ(×15した値が光源レベル)
 	    setLightLevel(0.0F);
 	}
 
-	// BlockSilverfish.classを参考にゾンビを召喚
+	// BlockSilverfish.classを参考に子どもゾンビを召喚
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int meta) {
 		if (!world.isRemote) {
     	    world.setBlockToAir(x, y + 1, z);
-    	    // Hard版調整の空気ブロック追加
-    	    world.setBlockToAir(x  + 1, y, z);
-    	    world.setBlockToAir(x, y, z + 1);
-    	    world.setBlockToAir(x - 1, y, z);
-    	    world.setBlockToAir(x, y, z - 1);
-    	    world.setBlockToAir(x  + 1, y + 1, z);
-    	    world.setBlockToAir(x, y + 1, z + 1);
-    	    world.setBlockToAir(x - 1, y + 1, z);
-    	    world.setBlockToAir(x, y + 1, z - 1);
 
     	    EntityZombie entityzombie = new EntityZombie(world);
+    	    entityzombie.setChild(true);
             entityzombie.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
             world.spawnEntityInWorld(entityzombie);
             entityzombie.spawnExplosionParticle();
@@ -58,6 +50,7 @@ public class MonsterEggZ extends AmeMEBase {
     		world.setBlockToAir(x, y + 1, z);
 
     		EntityZombie entityzombie = new EntityZombie(world);
+    	    entityzombie.setChild(true);
     		entityzombie.setLocationAndAngles((double)x + 0.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
     		world.spawnEntityInWorld(entityzombie);
     		entityzombie.spawnExplosionParticle();
@@ -71,10 +64,9 @@ public class MonsterEggZ extends AmeMEBase {
 		int r = new java.util.Random().nextInt(10);
 
 		if (r >= 7) { // 30％の確率でモンスターエッグ自身をドロップ
-			return Item.getItemFromBlock(AmeBlocks.blockMonsterEggZ);
+			return Item.getItemFromBlock(AmeBlocks.blockMonsterEggZC);
 		} else {	// 70％の確率で丸石をドロップ
 			return Item.getItemFromBlock(Blocks.cobblestone);
 		}
 	}
-
 }
